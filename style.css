@@ -8,14 +8,43 @@ body {
   font-family: sans-serif;
 }
 
+button {
+  color: var(--porpora);
+  border-color: grey;
+  border: 2px solid grey;
+}
+
+input {
+  border-color: var(--porpora);
+  border: 2px solid var(--porpora);
+}
+
 /* Utils */
 .bg-porpora-custom {
   background-color: var(--porpora);
 }
 
 /* Ticket-price section */
+.ticket-price {
+  min-height: 700px;
+}
+
 .ticket-price .col-3 > * {
   text-align: center;
+}
+
+.ticket-price-card {
+  box-shadow: 2px 2px 10px black;
+}
+
+/* Table */
+.special-cell {
+  width: 26%;
+}
+
+/* Other effects */
+button:active, button:hover {
+  border-color: orange;
 }
 
 

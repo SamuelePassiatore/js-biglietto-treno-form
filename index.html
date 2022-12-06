@@ -21,37 +21,67 @@
                    <h2 class="text-uppercase text-white fw-bold m-0">Calcola il prezzo del tuo biglietto</h2> 
                 </div>
             </div>
-            <div class="row bg-white d-flex justify-content-center py-4 ticket-price-card rounded-3">
+            <div class="row bg-white d-flex justify-content-center py-4 mb-4 ticket-price-card rounded-3">
                 <div class="col-3 d-flex flex-column gx-5">
                     <label for="name" class="pb-2">Nome Cognome</label>
-                    <input type="text" id="name" value="Napoleone">
+                    <input type="text" id="name" value="Napoleone" class="rounded-2">
                 </div>
                 <div class="col-3 d-flex flex-column gx-5">
                     <label for="km" class="pb-2">Km da percorrere</label>
-                    <input type="number" id="km" min="1" max="2000" value="10">
+                    <input type="number" id="km" min="1" max="2000" value="10" class="rounded-2">
                     <div class="row d-flex pt-5">
                         <div class="col-12">
-                            <button type="button" id="btn-create" class="fw-bold mx-2">Genera</button>
-                            <button type="reset" id="btn-reset" class="fw-bold mx-2">Annulla</button>
+                            <button type="button" id="btn-create" class="fw-bold fs-5 mx-2 rounded-2">Genera</button>
+                            <button type="reset" id="btn-reset" class="fw-bold fs-5 mx-2 rounded-2">Annulla</button>
                         </div>
                     </div>
                 </div>
                 <div class="col-3 d-flex flex-column gx-5">
                     <label for="age" class="pb-2">Fascia d'età</label>
-                    <input type="number" id="age" min="1" max="105" value="25">
+                    <input type="number" id="age" min="1" max="105" value="25" class="rounded-2">
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row text-center">
+                <div class="col-12">
+                   <h2 class="text-uppercase text-white fw-bold m-0">Il tuo biglietto</h2> 
+                </div>
+            </div>
+                
+            <div class="row bg-white pt-3 d-flex">
+                <div class="col-12">
+                    <h4 class="text-uppercase fw-bold m-0">Dettaglio Passeggeri</h4>
+                </div>
+            </div>
+            <div class="row bg-white pt-3 d-flex">
+                <div class="col-12">
+                    <table class="table table-borderless text-center">
+                        <thead>
+                            <tr class="text-center">
+                                <th class="special-cell"><h4 class="fw-bold text-uppercase">Nome Passeggero</h4></th>
+                                <th><h5 class="fw-bold">Offerta</h5></th>
+                                <th><h5 class="fw-bold">Carrozza</h5></th>
+                                <th><h5 class="fw-bold">Codice CP</h5></th>
+                                <th><h5 class="fw-bold">Costo biglietto</h5></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><div id="name-ticket"></div></td>
+                                <td><div id="type-ticket"></div></td>
+                                <td><div id="carriage-nr"></div></td>
+                                <td><div id="code-cp"></div></td>
+                                <td><div id="ticket-price"></div></td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>
     </section>
 
 
-    <!-- Section your ticket -->
-    <div>
-        <div id="name-ticket"></div>
-        <div id="type-ticket"></div>
-        <div id="carriage-nr"></div>
-        <div id="code-cp"></div>
-        <div id="ticket-price"></div>
-    </div>
 </body>
 </html>

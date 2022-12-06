@@ -13,13 +13,9 @@ Sulla base di queste informazioni dovrà calcolare il prezzo totale del bigliett
 1. Prendo gli elementi in pagina.
 2. Aggancio ai button un event listener e calcolo il prezzo del biglietto
 3. Applico uno sconto del 20% ai minorenni (<18) e uno del 40% agli over 65 (>= 65).
-4.
 
 */
 
-//General variables
-const priceKm = 0.21;
-console.log(priceKm);
 
 // 1 - Recupero gli elementi in pagina
 const inputName = document.getElementById('name');
@@ -29,6 +25,14 @@ const btnCreate = document.getElementById('btn-create');
 const btnReset = document.getElementById('btn-reset');
 let ticketPrice = document.getElementById('ticket-price');
 const nameTicket = document.getElementById('name-ticket');
+const typeTicket = document.getElementById('type-ticket');
+const carriageNr = document.getElementById('carriage-nr');
+const codeCp = document.getElementById('code-cp')
+
+//General variables
+const priceKm = 0.21;
+console.log(priceKm);
+
 
 // 2 - Aggancio ai button un event listener.
 btnCreate.addEventListener('click', function () {
@@ -46,15 +50,50 @@ btnCreate.addEventListener('click', function () {
   const age = parseInt(inputAge.value.trim());
   console.log(age);
 
+  let isValid = true;
+  // ! Control
+  if(isNaN(km) || isNaN(age) || km <= 0 || age <= 0){
+    isValid = false;
+    alert('I dati inseriti non sono corretti');
+  } else {
+  }
+
+  if (isValid) {
+
   // 3 - Calcolo gli eventuali sconti
   if (age >= 65) {
     price *= 0.6;
   } else if (age < 18) {
     price *= 0.8;
   }
-  // stampo il risultato in pagina
+
+  // Variable ticket type
+  const ticketType = 'Biglietto Standard';
+
+  // Random number - carriage nr.
+  const nrCarriage = Math.random();
+  const nrCarriageSecond = Math.floor(nrCarriage*10) + 1;
+  console.log(nrCarriageSecond);
+
+  // Random number - code cp
+  const cpCode = Math.random();
+  const cpCodeSecond = Math.floor(cpCode*100000)+ 1;
+  console.log(cpCodeSecond);
+
+
+  // Print result in page
   console.log(price);
   ticketPrice.innerText = price.toFixed(2) + ' €';
+
+  // Print variable ticket type in page 
+  typeTicket.innerText = ticketType;
+
+  // Print variable carriage nr in page
+  carriageNr.innerText = nrCarriageSecond;
+
+  // Print variable cp code in page
+  codeCp.innerText = cpCodeSecond;
+  }
 });
 
 btnReset.addEventListener('click', function () {
@@ -67,6 +106,7 @@ btnReset.addEventListener('click', function () {
   // const age user 
   inputAge.value = '';
 });
+
 
 
 
