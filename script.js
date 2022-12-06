@@ -38,12 +38,12 @@ btnCreate.addEventListener('click', function () {
   nameTicket.innerText = name;
 
   // const km user
-  const km = inputKm.value;
+  const km = parseInt(inputKm.value.trim());
   console.log(km); 
   let price = (km * priceKm);
 
   // const age user 
-  const age = inputAge.value;
+  const age = parseInt(inputAge.value.trim());
   console.log(age);
 
   // 3 - Calcolo gli eventuali sconti
@@ -53,6 +53,7 @@ btnCreate.addEventListener('click', function () {
     price *= 0.8;
   }
   // stampo il risultato in pagina
+  console.log(price);
   ticketPrice.innerText = price.toFixed(2) + ' €';
 });
 

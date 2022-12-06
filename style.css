@@ -1,5 +1,25 @@
-  /* Generics */
-  body {
-    font-family: sans-serif;
-  }
+/* Custom properties */
+:root{
+  --porpora: #B91450;
+}
+
+/* Generics */
+body {
+  font-family: sans-serif;
+}
+
+/* Utils */
+.bg-porpora-custom {
+  background-color: var(--porpora);
+}
+
+/* Ticket-price section */
+.ticket-price .col-3 > * {
+  text-align: center;
+}
+
+
+
+
+
   

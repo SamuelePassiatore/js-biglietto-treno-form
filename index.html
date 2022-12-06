@@ -13,16 +13,39 @@
     <script defer src="script.js"></script>
 </head>
 <body>
-    <div>
-        <label for="name">Nome Cognome</label>
-        <input type="text" id="name" value="Napoleone">
-        <label for="km">Km da percorrere</label>
-        <input type="number" id="km" min="1" max="2000" value="10">
-        <label for="age">Fascia d'età</label>
-        <input type="number" id="age" min="1" max="105" value="25">
-        <button type="button" id="btn-create">Genera</button>
-        <button type="reset" id="btn-reset">Annulla</button> 
-    </div>
+    <!-- Section ticket-price -->
+    <section class="bg-porpora-custom ticket-price">
+        <div class="container">
+            <div class="row text-center">
+                <div class="col-12 py-3">
+                   <h2 class="text-uppercase text-white fw-bold m-0">Calcola il prezzo del tuo biglietto</h2> 
+                </div>
+            </div>
+            <div class="row bg-white d-flex justify-content-center py-4 ticket-price-card rounded-3">
+                <div class="col-3 d-flex flex-column gx-5">
+                    <label for="name" class="pb-2">Nome Cognome</label>
+                    <input type="text" id="name" value="Napoleone">
+                </div>
+                <div class="col-3 d-flex flex-column gx-5">
+                    <label for="km" class="pb-2">Km da percorrere</label>
+                    <input type="number" id="km" min="1" max="2000" value="10">
+                    <div class="row d-flex pt-5">
+                        <div class="col-12">
+                            <button type="button" id="btn-create" class="fw-bold mx-2">Genera</button>
+                            <button type="reset" id="btn-reset" class="fw-bold mx-2">Annulla</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-3 d-flex flex-column gx-5">
+                    <label for="age" class="pb-2">Fascia d'età</label>
+                    <input type="number" id="age" min="1" max="105" value="25">
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Section your ticket -->
     <div>
         <div id="name-ticket"></div>
         <div id="type-ticket"></div>
