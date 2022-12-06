@@ -11,11 +11,11 @@ Sulla base di queste informazioni dovrà calcolare il prezzo totale del bigliett
 
 /* 
 1. Prendo gli elementi in pagina.
-2. Aggancio ai button un event listener e calcolo il prezzo del biglietto
+2. Aggancio ai button un event listener e calcolo il prezzo del biglietto.
 3. Applico uno sconto del 20% ai minorenni (<18) e uno del 40% agli over 65 (>= 65).
-
+4. Stampo le variabili nel DOM.
+5. Effettuo un controllo sui dati inseriti dall'utente negli input.
 */
-
 
 // 1 - Recupero gli elementi in pagina
 const inputName = document.getElementById('name');
@@ -52,10 +52,14 @@ btnCreate.addEventListener('click', function () {
 
   let isValid = true;
   // ! Control
-  if(isNaN(km) || isNaN(age) || km <= 0 || age <= 0){
+  if (isNaN(km) || km <= 0 || km > 2000) {
     isValid = false;
-    alert('I dati inseriti non sono corretti');
-  } else {
+    alert('Devi inserire un numero di km tra 1 a 2000');
+  }
+
+  if (isNaN(age) || age <= 0 || age > 105) {
+    isValid = false;
+    alert("Devi inserire un'età tra 1 a 105");
   }
 
   if (isValid) {
