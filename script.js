@@ -24,10 +24,11 @@ const inputAge = document.getElementById('age');
 const btnCreate = document.getElementById('btn-create');
 const btnReset = document.getElementById('btn-reset');
 const nameTicket = document.getElementById('name-ticket');
-const typeTicket = document.getElementById('type-ticket');
+let typeTicket = document.getElementById('type-ticket');
 const carriageNr = document.getElementById('carriage-nr');
 const codeCp = document.getElementById('code-cp');
 let ticketPrice = document.getElementById('ticket-price');
+const yourTicket = document.querySelector('.your-ticket');
 
 //General variables
 const priceKm = 0.21;
@@ -46,37 +47,33 @@ btnCreate.addEventListener('click', function () {
   let price = (km * priceKm);
 
   // const age user 
-  const age = parseInt(inputAge.value.trim());
+  const age = inputAge.value;
   console.log(age);
 
-  let isValid = true;
   // ! Control
-  // if (!name) { DA VERIFICARE!
-  //   isValid = false;
-  //   alert('Devi inserire un nome di almeno due lettere');
-  // }
+  if (!name) { 
+     alert('Devi inserire un nome di almeno due lettere');
+     return;
+  }
 
   if (isNaN(km) || km <= 0 || km > 2000) {
-    isValid = false;
     alert('Devi inserire un numero di km tra 1 a 2000');
-  }
-
-  if (isNaN(age) || age <= 0 || age > 105) {
-    isValid = false;
-    alert("Devi inserire un'età tra 1 a 105");
-  }
-
-  if (isValid) {
-
-  // 3 - Calcolo gli eventuali sconti
-  if (age >= 65) {
-    price *= 0.6;
-  } else if (age < 18) {
-    price *= 0.8;
+    return;
   }
 
   // Variable ticket type
-  const ticketType = 'Biglietto Standard';
+  let ticketType = 'Tariffa Standard';
+
+  // 3 - Calcolo gli eventuali sconti
+  if (age === 'over') {
+    price *= 0.6;
+    ticketType = 'Tariffa Over 65'
+
+  } else if (age === 'under') {
+    price *= 0.8;
+    ticketType = 'Tariffa Under 18'
+  }
+
 
   // Random number - carriage nr.
   const nrCarriage = Math.random();
@@ -87,6 +84,8 @@ btnCreate.addEventListener('click', function () {
   const cpCode = Math.random();
   const cpCodeSecond = Math.floor(cpCode*100000)+ 1;
   console.log(cpCodeSecond);
+
+
 
   // Print name in page
   nameTicket.innerText = name;
@@ -103,7 +102,13 @@ btnCreate.addEventListener('click', function () {
 
   // Print variable cp code in page
   codeCp.innerText = cpCodeSecond;
-  }
+
+  
+
+  // Show the ticket
+  yourTicket.classList.remove('d-none');
+
+  
 });
 
 btnReset.addEventListener('click', function () {
@@ -111,27 +116,18 @@ btnReset.addEventListener('click', function () {
   inputName.value = '';
 
   // const km user
-  inputKm.value = '';
+  inputKm.value = '10';
   
   // const age user 
   inputAge.value = '';
 
-  // Print name in page
-  nameTicket.innerText = '-';
 
-  // Print result in page
-  ticketPrice.innerText = '-';
-
-  // Print variable ticket type in page 
-  typeTicket.innerText = '-';
-
-  // Print variable carriage nr in page
-  carriageNr.innerText = '-';
-
-  // Print variable cp code in page
-  codeCp.innerText = '-';
+  // Hide the ticket
+  yourTicket.classList.add('d-none');
 
 });
+
+
 
 
 

@@ -24,7 +24,7 @@
             <div class="row bg-white d-flex justify-content-center py-4 mb-4 ticket-price-card rounded-3">
                 <div class="col-3 d-flex flex-column gx-5">
                     <label for="name" class="pb-2">Nome Cognome</label>
-                    <input type="text" minlength="2" id="name" value="Napoleone" class="rounded-2">
+                    <input type="text" minlength="2" maxlength="30" id="name" value="Napoleone" class="rounded-2">
                 </div>
                 <div class="col-3 d-flex flex-column gx-5">
                     <label for="km" class="pb-2">Km da percorrere</label>
@@ -38,12 +38,17 @@
                 </div>
                 <div class="col-3 d-flex flex-column gx-5">
                     <label for="age" class="pb-2">Fascia d'età</label>
-                    <input type="number" id="age" min="1" max="105" value="25" class="rounded-2">
+                    <select id="age" class="rounded-2 p-1">
+                        <option selected>Adulto</option>
+                        <option value="under">Minorenne</option>
+                        <option value="over">Over 65</option>
+                    </select>
+             
                 </div>
             </div>
         </div>
 
-        <div class="container">
+        <div class="container d-none your-ticket">
             <div class="row text-center">
                 <div class="col-12">
                    <h2 class="text-uppercase text-white fw-bold m-0">Il tuo biglietto</h2> 
@@ -82,5 +87,4 @@
         </div>
     </section>
 </body>
-</html>
 </html>
