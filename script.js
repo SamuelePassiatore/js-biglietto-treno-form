@@ -23,11 +23,11 @@ const inputKm = document.getElementById('km');
 const inputAge = document.getElementById('age');
 const btnCreate = document.getElementById('btn-create');
 const btnReset = document.getElementById('btn-reset');
-let ticketPrice = document.getElementById('ticket-price');
 const nameTicket = document.getElementById('name-ticket');
 const typeTicket = document.getElementById('type-ticket');
 const carriageNr = document.getElementById('carriage-nr');
-const codeCp = document.getElementById('code-cp')
+const codeCp = document.getElementById('code-cp');
+let ticketPrice = document.getElementById('ticket-price');
 
 //General variables
 const priceKm = 0.21;
@@ -37,9 +37,8 @@ console.log(priceKm);
 // 2 - Aggancio ai button un event listener.
 btnCreate.addEventListener('click', function () {
   // const name user
-  const name = inputName.value;
+  const name = inputName.value.trim();
   console.log(name);
-  nameTicket.innerText = name;
 
   // const km user
   const km = parseInt(inputKm.value.trim());
@@ -52,6 +51,11 @@ btnCreate.addEventListener('click', function () {
 
   let isValid = true;
   // ! Control
+  // if (!name) { DA VERIFICARE!
+  //   isValid = false;
+  //   alert('Devi inserire un nome di almeno due lettere');
+  // }
+
   if (isNaN(km) || km <= 0 || km > 2000) {
     isValid = false;
     alert('Devi inserire un numero di km tra 1 a 2000');
@@ -76,7 +80,7 @@ btnCreate.addEventListener('click', function () {
 
   // Random number - carriage nr.
   const nrCarriage = Math.random();
-  const nrCarriageSecond = Math.floor(nrCarriage*10) + 1;
+  const nrCarriageSecond = Math.floor(nrCarriage * 10) + 1;
   console.log(nrCarriageSecond);
 
   // Random number - code cp
@@ -84,6 +88,8 @@ btnCreate.addEventListener('click', function () {
   const cpCodeSecond = Math.floor(cpCode*100000)+ 1;
   console.log(cpCodeSecond);
 
+  // Print name in page
+  nameTicket.innerText = name;
 
   // Print result in page
   console.log(price);
@@ -109,6 +115,22 @@ btnReset.addEventListener('click', function () {
   
   // const age user 
   inputAge.value = '';
+
+  // Print name in page
+  nameTicket.innerText = '-';
+
+  // Print result in page
+  ticketPrice.innerText = '-';
+
+  // Print variable ticket type in page 
+  typeTicket.innerText = '-';
+
+  // Print variable carriage nr in page
+  carriageNr.innerText = '-';
+
+  // Print variable cp code in page
+  codeCp.innerText = '-';
+
 });
 
 
