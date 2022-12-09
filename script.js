@@ -108,7 +108,6 @@ btnCreate.addEventListener('click', function () {
   // Show the ticket
   yourTicket.classList.remove('d-none');
 
-  
 });
 
 btnReset.addEventListener('click', function () {
